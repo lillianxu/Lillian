@@ -1,0 +1,30 @@
+﻿@using Lillian.Models;
+@{
+    ViewBag.Title = "Search";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Search</h2>
+@using (Html.BeginForm("AllStaff", "Home"))
+{
+    <table class="table table-striped table-hover">
+        <tr>
+            <th>Staff ID</th>
+            <th>Staff Name</th>
+            <th>Staff Adress</th>
+            <th>Person Type</th>
+
+        </tr>
+        @foreach (Person sf in Model)
+        {
+            <tr>
+                <td>@sf.PersonId</td>
+                <td>@sf.FirstName</td>
+                <td>@sf.Address1</td>
+                <td>@sf.PersonType.Name</td>
+            </tr>
+        }
+
+    </table>
+
+}

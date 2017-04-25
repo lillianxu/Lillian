@@ -1,0 +1,33 @@
+﻿@model Lillian.Models.Person
+
+@{
+    ViewBag.Title = "staffEdit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>StaffEdit</h2>
+@using (Html.BeginForm("staffEdit","Home",FormMethod.Post))
+{
+    <table class="table table-striped table-hover">
+        <tr>
+            <td colspan="2">@Html.HiddenFor(a => a.PersonId)</td>
+        </tr> 
+        <tr>
+            <th>Name</th>
+            <td>@Html.TextBoxFor(a=>a.FirstName)</td>
+        </tr>   
+        <tr>
+            <th>Adress</th>
+            <td>@Html.TextBoxFor(a=>a.Address1)</td>
+        </tr>
+        <tr>
+            <th>Person Type</th>
+            <td>@Html.DropDownListFor(a=>a.PersonTypeId,ViewBag.persontypeList as IEnumerable<SelectListItem>)</td>
+        </tr>
+
+        <tr>
+            <td colspan="2"><input type="submit" value="submit"/>@Html.ActionLink("Return","AllStaff","Home")</td>
+        </tr>
+    </table>
+}
+
